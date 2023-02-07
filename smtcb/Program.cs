@@ -25,7 +25,8 @@ namespace smtcb
 #endif
 
             ApplicationContext applicationContext = agregator.ApplicationContext;
-            applicationContext.MainForm = new Login();
+            //applicationContext.MainForm = new Login();
+            applicationContext.MainForm = new MainForm();
             Application.Run(agregator.ApplicationContext);
         }
 

@@ -31,6 +31,25 @@ namespace smtcb.Services
 
         private Agreagator() { }
 
+#if DEBUG
+        public void AssertEverythingLoaded()
+        {
+            if (this.ApplicationContext == null)
+            {
+                throw new Exception("ApplicationContext is null");
+            }
+
+            if (this.UserProvider == null) {
+                throw new Exception("UserProvider is null");
+            }
+
+            if (this.AuthService == null) 
+            {
+                throw new Exception("Auth Service is null");
+            }
+        }
+#endif
+
         public ApplicationContext ApplicationContext { get; private set; }
 
         public UserProvider UserProvider { get; private set; }

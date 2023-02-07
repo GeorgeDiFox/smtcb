@@ -18,6 +18,11 @@ namespace smtcb
             Initialize();
 
             Agreagator agregator = Agreagator.Instance;
+
+#if DEBUG
+            agregator.AssertEverythingLoaded();
+#endif
+
             ApplicationContext applicationContext = agregator.ApplicationContext;
             applicationContext.MainForm = new Login();
             Application.Run(applicationContext);

@@ -1,4 +1,5 @@
-﻿using smtcb.Services;
+﻿using smtcb.Forms;
+using smtcb.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,8 +25,9 @@ namespace smtcb
 #endif
 
             ApplicationContext applicationContext = agregator.ApplicationContext;
-            applicationContext.MainForm = new Login();
-            Application.Run(applicationContext);
+            //applicationContext.MainForm = new Login();
+            applicationContext.MainForm = new MainForm();
+            Application.Run(agregator.ApplicationContext);
         }
 
         static void Initialize()

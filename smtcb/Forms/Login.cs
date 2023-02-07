@@ -1,4 +1,5 @@
 ﻿using smtcb.Forms;
+using smtcb.Models;
 using smtcb.Services;
 using System;
 using System.Collections.Generic;
@@ -28,13 +29,13 @@ namespace smtcb
 
             AuthService authService = agreagator.AuthService;
 
-            if (authService.CheckCredentials(username, password))
+            User user = authService.TryLoggIn(username, password);
+
+            if (user != null)
             {
-                ApplicationContext ctx = agreagator.ApplicationContext;
-                MainForm main = new MainForm();
-                ctx.MainForm = main;
-                this.Close();
-                main.Show();
+                agreagator.SessionData.CurrentUser = user;
+                agreagator.SessionData.IsLoggedIn = true;
+                agreagator.RoutingService.RouteToForm("Main");
             } 
             else
             {

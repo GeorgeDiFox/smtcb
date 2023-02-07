@@ -52,6 +52,9 @@
     <Compile Include="Components\MainMenu.Designer.cs">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Factory\AbstractFormFactory.cs" />
+    <Compile Include="Factory\LoginFormFactory.cs" />
+    <Compile Include="Factory\MainFormFactory.cs" />
     <Compile Include="Forms\Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,7 +74,9 @@
     <Compile Include="Agreagator.cs" />
     <Compile Include="Services\AuthService.cs" />
     <Compile Include="Services\CurrenciesProvider.cs" />
+    <Compile Include="Services\RoutingService.cs" />
     <Compile Include="Services\UserProvider.cs" />
+    <Compile Include="SessionData.cs" />
     <EmbeddedResource Include="Components\MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </EmbeddedResource>

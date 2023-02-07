@@ -71,7 +71,9 @@
     <Compile Include="Agreagator.cs" />
     <Compile Include="Services\AuthService.cs" />
     <Compile Include="Services\CurrenciesProvider.cs" />
+    <Compile Include="Services\RoutingService.cs" />
     <Compile Include="Services\UserProvider.cs" />
+    <Compile Include="SessionData.cs" />
     <EmbeddedResource Include="Components\MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </EmbeddedResource>

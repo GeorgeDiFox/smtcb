@@ -29,6 +29,11 @@ namespace smtcb.Services
             this.AuthService = authService;
         }
 
+        public void LoadSessionData(SessionData sessionData)
+        {
+            this.SessionData = sessionData;
+        }
+
         private Agreagator() { }
 
 #if DEBUG
@@ -45,7 +50,12 @@ namespace smtcb.Services
 
             if (this.AuthService == null) 
             {
-                throw new Exception("Auth Service is null");
+                throw new Exception("AuthService is null");
+            }
+
+            if (this.SessionData == null)
+            {
+                throw new Exception("SessionData is null");
             }
         }
 #endif
@@ -55,5 +65,7 @@ namespace smtcb.Services
         public UserProvider UserProvider { get; private set; }
 
         public AuthService AuthService { get; private set; }
+
+        public SessionData SessionData { get; private set; }
     }
 }

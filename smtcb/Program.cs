@@ -27,6 +27,7 @@ namespace smtcb
             ApplicationContext applicationContext = agregator.ApplicationContext;
             //applicationContext.MainForm = new Login();
             applicationContext.MainForm = new MainForm();
+            agregator.SessionData.CurrentForm = applicationContext.MainForm;
             Application.Run(agregator.ApplicationContext);
         }
 
@@ -39,6 +40,11 @@ namespace smtcb
 
             UserProvider userProvider = new UserProvider();
 
+            SessionData sessionData = new SessionData()
+            {
+                IsLoggedIn = false
+            };
+
             AuthService authService = new AuthService(userProvider);
             authService.RegisterUser("admin", "admin");
 
@@ -46,6 +52,7 @@ namespace smtcb
             agreagator.LoadApplicationContext(applicationContext);
             agreagator.LoadUserProvider(userProvider);
             agreagator.LoadAuthService(authService);
+            agreagator.LoadSessionData(sessionData);
         }
     }
 }

@@ -53,6 +53,8 @@
       <DependentUpon>MainMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="Factory\AbstractFormFactory.cs" />
+    <Compile Include="Factory\LoginFormFactory.cs" />
+    <Compile Include="Factory\MainFormFactory.cs" />
     <Compile Include="Forms\Login.cs">
       <SubType>Form</SubType>
     </Compile>

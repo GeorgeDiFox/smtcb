@@ -1,4 +1,5 @@
-﻿using smtcb.Forms;
+﻿using smtcb.Factory;
+using smtcb.Forms;
 using smtcb.Services;
 using System;
 using System.Collections.Generic;
@@ -59,7 +60,9 @@ namespace smtcb
         {
             RoutingService router = new RoutingService(sessionData, applicationContext);
 
-            router.AddRoute(typeof(MainForm), "Main");
+            router.AddRoute(new MainFormFactory(), "Main");
+
+            router.AddRoute(new LoginFormFactory(), "Login");
 
             return router;
         }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using smtcb.Factory;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,21 +14,21 @@ namespace smtcb.Services
         {
             this.sessionData = sessionData;
             this.applicationContext = applicationContext;
-            this.routes = new Dictionary<string, Type>();
+            this.routes = new Dictionary<string, AbstractFormFactory>();
         }
 
         public void RouteToForm(params string[] path)
         {
             string fullPath = string.Join("/", path);
 
-            Type toJump = this.routes[fullPath];
+            AbstractFormFactory toJump = this.routes[fullPath];
 
             if (toJump == null)
             {
                 throw new ArgumentException($"The route {fullPath} does not exists");
             }
 
-            Form nextForm = (Form) Activator.CreateInstance(toJump);
+            Form nextForm = toJump.CreateInstance();
 
             applicationContext.MainForm = nextForm;
             sessionData.CurrentForm.Close();
@@ -35,7 +36,7 @@ namespace smtcb.Services
             nextForm.Show();
         }
 
-        public void AddRoute(Type form, params string[] path)
+        public void AddRoute(AbstractFormFactory form, params string[] path)
         {
             string fullPath = string.Join("/", path);
 
@@ -46,6 +47,6 @@ namespace smtcb.Services
 
         private ApplicationContext applicationContext;
 
-        private Dictionary<string, Type> routes;
+        private Dictionary<string, AbstractFormFactory> routes;
     }
 }

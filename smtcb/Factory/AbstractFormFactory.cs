@@ -9,6 +9,6 @@ namespace smtcb.Factory
 {
     public abstract class AbstractFormFactory
     {
-        public abstract Form CreateInsance();
+        public abstract Form CreateInstance();
     }
 }

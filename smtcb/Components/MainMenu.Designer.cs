@@ -64,6 +64,7 @@
             // userNameToolStripMenuItem
             // 
             this.userNameToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.userNameToolStripMenuItem.Enabled = false;
             this.userNameToolStripMenuItem.Name = "userNameToolStripMenuItem";
             this.userNameToolStripMenuItem.Size = new System.Drawing.Size(121, 20);
             this.userNameToolStripMenuItem.Text = "Имя пользователя";

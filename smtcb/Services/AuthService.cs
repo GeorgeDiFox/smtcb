@@ -53,6 +53,15 @@ namespace smtcb.Services
                 && user.Password == HashFunction(password);
         }
 
+        public User TryLoggIn(string username, string password)
+        {
+            if (! this.CheckCredentials(username, password)) return null;
+
+            var userIndex = _userProvider.UsersIndex;
+
+            return userIndex[username];
+        }
+
         public bool RegisterUser(string username, string password)
         {
             var userIndex = _userProvider.UsersIndex;

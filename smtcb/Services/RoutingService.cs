@@ -13,36 +13,39 @@ namespace smtcb.Services
         {
             this.sessionData = sessionData;
             this.applicationContext = applicationContext;
+            this.routes = new Dictionary<string, Type>();
         }
 
         public void RouteToForm(params string[] path)
         {
             string fullPath = string.Join("/", path);
 
-            Form toJump = routes[fullPath];
+            Type toJump = this.routes[fullPath];
 
             if (toJump == null)
             {
                 throw new ArgumentException($"The route {fullPath} does not exists");
             }
 
-            applicationContext.MainForm = toJump;
+            Form nextForm = (Form) Activator.CreateInstance(toJump);
+
+            applicationContext.MainForm = nextForm;
             sessionData.CurrentForm.Close();
-            sessionData.CurrentForm = toJump;
-            toJump.Show();
+            sessionData.CurrentForm = nextForm;
+            nextForm.Show();
         }
 
-        public void AddRoute(Form form, params string[] path)
+        public void AddRoute(Type form, params string[] path)
         {
             string fullPath = string.Join("/", path);
 
-            routes.Add(fullPath, form);
+            this.routes.Add(fullPath, form);
         }
 
         private SessionData sessionData;
 
         private ApplicationContext applicationContext;
 
-        private Dictionary<string, Form> routes;
+        private Dictionary<string, Type> routes;
     }
 }

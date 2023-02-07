@@ -54,5 +54,14 @@ namespace smtcb
             agreagator.LoadAuthService(authService);
             agreagator.LoadSessionData(sessionData);
         }
+
+        static RoutingService InitializeRouter(SessionData sessionData, ApplicationContext applicationContext)
+        {
+            RoutingService router = new RoutingService(sessionData, applicationContext);
+
+            router.AddRoute(typeof(MainForm), "Main");
+
+            return router;
+        }
     }
 }

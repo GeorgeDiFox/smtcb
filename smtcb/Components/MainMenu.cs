@@ -16,6 +16,7 @@ namespace smtcb.Components
         public MainMenu()
         {
             InitializeComponent();
+            //this.Load += loadingHandler;
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -30,6 +31,29 @@ namespace smtcb.Components
             ctx.MainForm = loginForm;
             current.Close();
             loginForm.Show();
+        }
+
+        private void loadUsername()
+        {
+            Agreagator agreagator = Agreagator.Instance;
+
+            bool isLoggedIn = agreagator.SessionData.IsLoggedIn;
+
+            if (isLoggedIn || agreagator.SessionData.CurrentUser != null)
+            {
+                string username = agreagator.SessionData.CurrentUser.UserName;
+
+                this.userNameToolStripMenuItem.Text = username;
+            }
+            else
+            {
+                this.userNameToolStripMenuItem.Text = "Гость";
+            }
+        }
+
+        private void loadingHandler(object sender, EventArgs e)
+        {
+            this.loadUsername();
         }
     }
 }

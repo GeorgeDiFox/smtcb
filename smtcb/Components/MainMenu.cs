@@ -23,14 +23,7 @@ namespace smtcb.Components
         {
             Agreagator agreagator = Agreagator.Instance;
 
-            ApplicationContext ctx = agreagator.ApplicationContext;
-
-            var loginForm = new Login();
-
-            var current = ctx.MainForm;
-            ctx.MainForm = loginForm;
-            current.Close();
-            loginForm.Show();
+            agreagator.RoutingService.RouteToForm("Login");
         }
 
         private void loadUsername()

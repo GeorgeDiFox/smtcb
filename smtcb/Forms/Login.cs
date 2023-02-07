@@ -35,12 +35,7 @@ namespace smtcb
             {
                 agreagator.SessionData.CurrentUser = user;
                 agreagator.SessionData.IsLoggedIn = true;
-
-                ApplicationContext ctx = agreagator.ApplicationContext;
-                MainForm main = new MainForm();
-                ctx.MainForm = main;
-                this.Close();
-                main.Show();
+                agreagator.RoutingService.RouteToForm("Main");
             } 
             else
             {

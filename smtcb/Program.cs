@@ -49,11 +49,14 @@ namespace smtcb
             AuthService authService = new AuthService(userProvider);
             authService.RegisterUser("admin", "admin");
 
+            RoutingService router = InitializeRouter(sessionData, applicationContext);
+
             Agreagator agreagator = Agreagator.Instance;
             agreagator.LoadApplicationContext(applicationContext);
             agreagator.LoadUserProvider(userProvider);
             agreagator.LoadAuthService(authService);
             agreagator.LoadSessionData(sessionData);
+            agreagator.LoadRoutingService(router);
         }
 
         static RoutingService InitializeRouter(SessionData sessionData, ApplicationContext applicationContext)

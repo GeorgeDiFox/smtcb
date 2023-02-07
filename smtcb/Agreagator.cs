@@ -34,6 +34,11 @@ namespace smtcb.Services
             this.SessionData = sessionData;
         }
 
+        public void LoadRoutingService(RoutingService routingService)
+        {
+            this.RoutingService = routingService;
+        }
+
         private Agreagator() { }
 
 #if DEBUG
@@ -57,6 +62,11 @@ namespace smtcb.Services
             {
                 throw new Exception("SessionData is null");
             }
+
+            if (this.RoutingService == null)
+            {
+                throw new Exception("RoutingService is null");
+            }
         }
 #endif
 
@@ -67,5 +77,7 @@ namespace smtcb.Services
         public AuthService AuthService { get; private set; }
 
         public SessionData SessionData { get; private set; }
+
+        public RoutingService RoutingService { get; private set; }
     }
 }

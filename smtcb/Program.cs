@@ -26,8 +26,8 @@ namespace smtcb
 #endif
 
             ApplicationContext applicationContext = agregator.ApplicationContext;
-            //applicationContext.MainForm = new Login();
-            applicationContext.MainForm = new MainForm();
+            applicationContext.MainForm = new Login();
+            //applicationContext.MainForm = new MainForm();
             agregator.SessionData.CurrentForm = applicationContext.MainForm;
             Application.Run(agregator.ApplicationContext);
         }
@@ -66,6 +66,8 @@ namespace smtcb
             router.AddRoute(new MainFormFactory(), "Main");
 
             router.AddRoute(new LoginFormFactory(), "Login");
+
+            router.AddRoute(new RegistrationFormFactory(), "Login", "Registration");
 
             return router;
         }

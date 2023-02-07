@@ -47,7 +47,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.mainMenu1);
             this.Name = "MainForm";
-            this.Text = "MainForm";
+            this.Text = "ЦеБрер";
             this.ResumeLayout(false);
 
         }

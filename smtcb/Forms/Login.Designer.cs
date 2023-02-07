@@ -33,6 +33,8 @@
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.loginButton = new System.Windows.Forms.Button();
+            this.guestButton = new System.Windows.Forms.Button();
+            this.registerButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // nameLabel
@@ -77,11 +79,33 @@
             this.loginButton.UseVisualStyleBackColor = true;
             this.loginButton.Click += new System.EventHandler(this.LogInHandler);
             // 
+            // guestButton
+            // 
+            this.guestButton.Location = new System.Drawing.Point(143, 287);
+            this.guestButton.Name = "guestButton";
+            this.guestButton.Size = new System.Drawing.Size(300, 45);
+            this.guestButton.TabIndex = 5;
+            this.guestButton.Text = "Войти как гость";
+            this.guestButton.UseVisualStyleBackColor = true;
+            this.guestButton.Click += new System.EventHandler(this.guestButton_Click);
+            // 
+            // registerButton
+            // 
+            this.registerButton.Location = new System.Drawing.Point(143, 338);
+            this.registerButton.Name = "registerButton";
+            this.registerButton.Size = new System.Drawing.Size(300, 45);
+            this.registerButton.TabIndex = 6;
+            this.registerButton.Text = "Зарегистрироваться";
+            this.registerButton.UseVisualStyleBackColor = true;
+            this.registerButton.Click += new System.EventHandler(this.registerButton_Click);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(593, 431);
+            this.Controls.Add(this.registerButton);
+            this.Controls.Add(this.guestButton);
             this.Controls.Add(this.loginButton);
             this.Controls.Add(this.passwordTextBox);
             this.Controls.Add(this.nameTextBox);
@@ -101,6 +125,8 @@
         private System.Windows.Forms.TextBox nameTextBox;
         private System.Windows.Forms.TextBox passwordTextBox;
         private System.Windows.Forms.Button loginButton;
+        private System.Windows.Forms.Button guestButton;
+        private System.Windows.Forms.Button registerButton;
     }
 }
 

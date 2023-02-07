@@ -42,5 +42,17 @@ namespace smtcb
                 Console.WriteLine("Вы не вошли");
             }
         }
+
+        private void guestButton_Click(object sender, EventArgs e)
+        {
+            Agreagator agreagator = Agreagator.Instance;
+            agreagator.RoutingService.RouteToForm("Main");
+        }
+
+        private void registerButton_Click(object sender, EventArgs e)
+        {
+            Agreagator agreagator = Agreagator.Instance;
+            agreagator.RoutingService.RouteToForm("Login", "Registration");
+        }
     }
 }

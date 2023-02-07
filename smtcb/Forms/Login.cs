@@ -1,4 +1,5 @@
-﻿using smtcb.Services;
+﻿using smtcb.Forms;
+using smtcb.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,7 +30,11 @@ namespace smtcb
 
             if (authService.CheckCredentials(username, password))
             {
-                Console.WriteLine("Вы вошли");
+                ApplicationContext ctx = agreagator.ApplicationContext;
+                MainForm main = new MainForm();
+                ctx.MainForm = main;
+                this.Close();
+                main.Show();
             } 
             else
             {
